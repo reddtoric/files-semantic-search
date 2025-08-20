@@ -1,0 +1,25 @@
+# Core dependencies for semantic file search
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+unstructured>=0.10.0
+python-magic-bin>=0.4.14  # For Windows compatibility
+
+# PyTorch (CPU version - install GPU version separately if needed)
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Optional but recommended for GPU acceleration:
+# Install manually with: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Additional dependencies that may be needed
+numpy>=1.21.0
+pandas>=1.3.0  # For data handling
+pathlib2>=2.3.0  # For older Python versions
+typing-extensions>=4.0.0  # For type hints
+
+# Document processing dependencies (automatically installed with unstructured)
+# These may require additional system packages on some systems:
+# - For PDF support: pip install "unstructured[pdf]"
+# - For Office docs: pip install "unstructured[docx]" 
+# - For all formats: pip install "unstructured[all-docs]"

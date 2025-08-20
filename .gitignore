@@ -1,0 +1,8 @@
+.chroma/
+__pycache__/
+
+Archive/
+
+file_cache.json
+file_search.log
+*.log
