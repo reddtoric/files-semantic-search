@@ -16,6 +16,7 @@ An AI-powered file search tool that finds files by meaning, not just keywords. U
 ## 🚀 Quick Start
 
 ### Basic Usage
+
 ```bash
 # Simple search
 python file_search.py "machine learning code"
@@ -31,6 +32,7 @@ python file_search.py "error handling" --model best -k 15
 ```
 
 ### Advanced Usage
+
 ```bash
 # Specific file types only
 python file_search.py "React components" --extensions .js .jsx .ts .tsx
@@ -44,7 +46,7 @@ python file_search.py "test files" --threads 16 --gpu-batch-size 512 --perf-repo
 
 ## 📁 File Structure
 
-```
+```txt
 semantic-file-search/
 ├── file_search.py      # 🎯 Main entry point and CLI
 ├── config.py          # ⚙️ Configuration management
@@ -57,11 +59,13 @@ semantic-file-search/
 ## 🔧 Installation
 
 ### Prerequisites
+
 ```bash
 pip install chromadb sentence-transformers unstructured python-magic-bin torch
 ```
 
 ### GPU Acceleration (Optional but Recommended)
+
 ```bash
 # For NVIDIA GPUs with CUDA
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
@@ -70,6 +74,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ## 🎛️ Command Line Options
 
 ### Essential Options
+
 | Option | Description | Example |
 |--------|-------------|---------|
 | `query` | What to search for | `"machine learning code"` |
@@ -79,6 +84,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 | `-m, --model` | AI model to use | `--model fast` |
 
 ### Performance Options
+
 | Option | Description | Example |
 |--------|-------------|---------|
 | `--cache` | Enable smart caching | `--cache` |
@@ -87,6 +93,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 | `--no-gpu` | Disable GPU | `--no-gpu` |
 
 ### File Filtering
+
 | Option | Description | Example |
 |--------|-------------|---------|
 | `--extensions` | File types to include | `--extensions .py .js .md` |
@@ -94,6 +101,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 | `--max-files N` | Limit total files | `--max-files 1000` |
 
 ### Development & Debug
+
 | Option | Description | Example |
 |--------|-------------|---------|
 | `--debug` | Show detailed info | `--debug` |
@@ -103,6 +111,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ## 🤖 AI Model Selection
 
 ### Quick Reference
+
 | Model | Speed | Quality | Best For |
 |-------|-------|---------|----------|
 | `fast` | ⚡⚡⚡ | ⭐⭐ | Large codebases, quick results |
@@ -113,6 +122,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 | `multi` | ⚡⚡ | ⭐⭐⭐ | Multiple languages |
 
 ### Examples
+
 ```bash
 # Speed priority - fastest processing
 python file_search.py "API endpoints" --model fast
@@ -130,6 +140,7 @@ python file_search.py "database queries" --model code
 ## 📊 Understanding Results
 
 ### Similarity Scores
+
 - **0.8-1.0**: Very similar files (exact matches, same topic)
 - **0.6-0.8**: Quite similar files (related functionality)
 - **0.4-0.6**: Somewhat related files (same domain)
@@ -137,7 +148,8 @@ python file_search.py "database queries" --model code
 - **0.0-0.2**: Minimal similarity (likely not relevant)
 
 ### Example Output
-```
+
+```txt
 🎯 Found 5 relevant files for 'authentication code':
 ============================================================
  1. [0.847] src/auth/login.py
@@ -151,11 +163,13 @@ python file_search.py "database queries" --model code
 ## ⚡ Performance Tips
 
 ### First Run vs Subsequent Runs
+
 - **First run**: Builds search index (slower, ~2-10 minutes)
 - **Later runs**: Uses cached index (fast, ~5-30 seconds)
 - **With --cache**: Skips unchanged files (much faster)
 
 ### Speed Optimizations
+
 ```bash
 # Fastest possible search
 python file_search.py "query" --model fast --cache --priority-exts
@@ -168,6 +182,7 @@ python file_search.py "query" --threads 16 --gpu-batch-size 512
 ```
 
 ### Memory Management
+
 - **Large projects**: Use `--model fast` or `--model tiny`
 - **Memory issues**: Reduce `--gpu-batch-size` to 128 or 64
 - **Very large**: Use `--max-files` to limit processing
@@ -176,6 +191,7 @@ python file_search.py "query" --threads 16 --gpu-batch-size 512
 ## 🔍 Search Strategies
 
 ### Finding Code
+
 ```bash
 # Programming concepts
 python file_search.py "error handling patterns" --model code
@@ -189,6 +205,7 @@ python file_search.py "async await patterns"
 ```
 
 ### Finding Documentation
+
 ```bash
 # Documentation and guides
 python file_search.py "installation instructions" --extensions .md .txt .rst
@@ -197,6 +214,7 @@ python file_search.py "troubleshooting guide"
 ```
 
 ### Finding Configuration
+
 ```bash
 # Config and setup files
 python file_search.py "database configuration" --extensions .json .yaml .cfg
@@ -209,6 +227,7 @@ python file_search.py "build settings" --extensions .json .yaml .toml
 ### Common Issues
 
 **Slow Performance**
+
 ```bash
 # Try faster model
 python file_search.py "query" --model fast
@@ -221,6 +240,7 @@ python file_search.py "query" --debug  # Look for GPU detection info
 ```
 
 **No Results Found**
+
 ```bash
 # Lower the threshold to see all results
 python file_search.py "query" --min-score 0.0 --debug
@@ -233,6 +253,7 @@ python file_search.py "query" --debug --verbose
 ```
 
 **Memory Issues**
+
 ```bash
 # Use smaller model
 python file_search.py "query" --model tiny
@@ -245,6 +266,7 @@ python file_search.py "query" --no-gpu
 ```
 
 **GPU Not Working**
+
 ```bash
 # Check CUDA installation
 python -c "import torch; print(torch.cuda.is_available())"
@@ -257,7 +279,9 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 
 ### Debug Mode
+
 Use `--debug` to see detailed information:
+
 - File processing statistics
 - Search score breakdown  
 - Hardware detection results
@@ -270,6 +294,7 @@ python file_search.py "query" --debug --perf-report
 ## 🔄 What's New
 
 ### Performance Improvements
+
 - ⚡ **Faster Startup**: Deferred imports, show config immediately
 - 🚀 **Optimized Scanning**: Smart directory traversal, skip build folders
 - 📊 **Live Progress**: Real-time progress for both scanning and indexing
@@ -277,23 +302,13 @@ python file_search.py "query" --debug --perf-report
 - 🎯 **Priority Processing**: Common file types processed first
 
 ### Enhanced Context
+
 - 📁 **Path Awareness**: File paths included in search context
 - 🏷️ **Better Naming**: Filenames and directory names boost relevance
 - 🔍 **Improved Matching**: Finds files even with different terminology
 
-### Modular Architecture  
+### Modular Architecture
+
 - 📂 **Split Files**: Organized into logical modules
 - 🛠️ **Better Maintenance**: Easier to extend and modify
 - 📖 **Clear Documentation**: Comprehensive help and examples
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests! This tool is designed to be:
-- **Fast**: Optimized for large codebases
-- **Accurate**: Finds relevant files by meaning
-- **User-friendly**: Clear output and helpful guidance
-- **Extensible**: Modular design for easy enhancement
-
-## 📝 License
-
-This project is open source. Use it to find your files faster! 🚀
